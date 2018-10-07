@@ -16,7 +16,7 @@ if __name__ == "__main__":
   pswd = None
   check = False
   global check, pswd
-  name = "pyBoolean Example"
+  name = "Keyboard Controller"
   server = "sandbox.spacebrew.cc"
 
   brew = Spacebrew(name=name, server=server)
