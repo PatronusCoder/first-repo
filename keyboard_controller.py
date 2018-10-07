@@ -14,8 +14,6 @@ if __name__ == "__main__":
   try:
     # start-up spacebrew
     brew.start()
-    pswd = str(raw_input("Enter the password: "))
-    brew.publish('pwd', True)
     locale.setlocale(locale.LC_ALL, '')
     code = locale.getpreferredencoding()
     rate = rospy.Rate(1.0)
