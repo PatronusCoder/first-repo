@@ -6,9 +6,9 @@ import sys
 from pySpacebrew.spacebrew import Spacebrew
 
 if __name__ == "__main__":
-    name = "keyboard controller"
+    name = "Keyboard Controller"
     server = "sandbox.spacebrew.cc"
-    
+
     brew = Spacebrew(name=name, server=server)
     brew.addPublisher("cmd", "string")
     try:
@@ -19,12 +19,13 @@ if __name__ == "__main__":
         #rate = rospy.Rate(1.0)
           # initialize the terminal display
         stdscr = curses.initscr()
+        curses.halfdelay(2)
         stdscr.keypad(1)
         #curses.noecho()			# turn off echo
         curses.curs_set(0)		# turn off cursor
         while 1:
             c = stdscr.getch()
-            if (c == 119): 
+            if (c == 119):
                 brew.publish('cmd', 'w')
             elif (c == 115):
                 brew.publish('cmd', 's')
@@ -33,15 +34,15 @@ if __name__ == "__main__":
             elif (c == 100):
                 brew.publish('cmd', 'd')
             elif (c == 120):
-                break 
+                break
             else:
                 brew.publish('cmd', 'nan')
-            time.sleep(1)
+            #time.sleep(0.5)
     except KeyboardInterrupt:
-        pass 
+        pass
     finally:
         brew.stop()
         curses.nocbreak()
         stdscr.keypad(0)
         #curses.echo()
-        curses.endwin()  
+        curses.endwin()
