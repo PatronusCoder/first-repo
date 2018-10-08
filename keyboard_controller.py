@@ -6,7 +6,7 @@ import sys
 from pySpacebrew.spacebrew import Spacebrew
 
 if __name__ == "__main__":
-    name = "pyBoolean Example"
+    name = "keyboard controller"
     server = "sandbox.spacebrew.cc"
     
     brew = Spacebrew(name=name, server=server)
@@ -20,7 +20,7 @@ if __name__ == "__main__":
           # initialize the terminal display
         stdscr = curses.initscr()
         stdscr.keypad(1)
-        curses.noecho()			# turn off echo
+        #curses.noecho()			# turn off echo
         curses.curs_set(0)		# turn off cursor
         while 1:
             c = stdscr.getch()
@@ -43,5 +43,5 @@ if __name__ == "__main__":
         brew.stop()
         curses.nocbreak()
         stdscr.keypad(0)
-        curses.echo()
+        #curses.echo()
         curses.endwin()  
